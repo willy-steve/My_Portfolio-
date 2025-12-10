@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Steve Kamgno - Software Engineering Student | Full-Stack Developer | Tech Innovator">
+    <title>Steve Djidyou | Portfolio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("YOUR_PUBLIC_KEY"); // Get this from your EmailJS Account tab
+   })();
+</script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="#home">SD</a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <canvas id="three-canvas"></canvas>
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="hero-name">Steve Djidyou</h1>
+                    <div class="hero-title">
+                    
+                        <span id="dynamicText" class="dynamic-text"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <p class="hero-subtitle">Crafting efficient systems, intuitive interfaces, and impactful digital experiences.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:steve@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#about">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <img src="/image/willy+Nest.jpg" alt="Steve Djidyou">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Hello, I'm <span class="highlight">Steve Djidyou</span></h3>
+                    <p class="lead">A passionate Software Engineer, dedicated to building efficient, scalable, and user-centered software systems.</p>
+                    <p>I work across image processing, distributed systems, data science, software architecture, and web development. I enjoy solving real-world problems, creating intuitive digital experiences, and designing clean, well-structured systems.</p>
+                    <p>I am also improving my public-speaking and leadership skills, aspiring to become an exceptional bilingual orator fluent in both English and French.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">7+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">C++/C</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Frameworks & Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">react native</span>
+                        <span class="skill-tag">Scikit-Learn</span>
+                        <span class="skill-tag">Three.js</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Domains</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Web Development</span>
+                        <span class="skill-tag">Mobile App</span>
+                        <span class="skill-tag">Image Processing</span>
+                        <span class="skill-tag">Data Science</span>
+                        <span class="skill-tag">Software Architecture</span>
+                        <span class="skill-tag">Distributed Systems</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Soft Skills</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Public Speaking</span>
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Coach</span>
+                        <span class="skill-tag">Bilingual (EN/FR)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800" alt="V-SHOP">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-view">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>V-SHOP</h3>
+                        <p>A comprehensive e-commerce platform with advanced features including product management, shopping cart, and secure payment integration.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/7376/startup-photos.jpg?auto=compress&cs=tinysrgb&w=800" alt="Timetable Management System">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-view">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Timetable Management System</h3>
+                        <p>An intelligent scheduling system that automates timetable creation, manages conflicts, and optimizes resource allocation for educational institutions.</p>
+                        <div class="project-tags">
+                            <span class="tag">react/vue.js</span>
+                            <span class="tag">typescript</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Algorithms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Image Processing Suite">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-view">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Image Processing Suite</h3>
+                        <p>A collection of advanced image processing tools featuring filters, edge detection, object recognition, and real-time video analysis capabilities.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">NumPy</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Interactive Web Apps">
+                        <div class="project-overlay">
+                            <a href="#" class="btn btn-view">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Interactive Web Applications</h3>
+                        <p>A portfolio of modern, responsive web applications featuring dynamic user interfaces, real-time data visualization, and seamless user experiences.</p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">Three.js</span>
+                            <span class="tag">API Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Education & Experience</h2>
+            <div class="experience-content">
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="experience-details">
+                       <h3>Software Engineering Student</h3>
+                        <h4>Yaoundé International Business School (YIBS)</h4>
+                        <p class="experience-period">Present</p>
+                        <ul class="experience-list">
+                            <li>Undergoing advanced training in software engineering, with a strong focus on system design, algorithms, and scalable application development</li>
+                            <li>Conducting academic and personal research in areas such as distributed systems, cloud computing, image processing, and data-driven decision systems</li>
+                            <li>Collaborating in multidisciplinary team projects using Agile methods, sprint planning, and modern version-control workflows (Git & GitHub)</li>
+                            <li>Expanding expertise in full-stack development, software architecture principles, OOP, design patterns, and best engineering practices</li>
+                            <li>Improving leadership and communication skills through technical presentations, project documentation, and group coordination</li>
+                            <li>Currently completing final-year academic requirements, with graduation expected in the next 7 months</li>
+                        </ul>
+                    </div>
+                    <div class="experience-details">
+                            <h3>Software Engineering Intern</h3>
+                            <h4>DIGIMARK</h4>
+                            <p class="experience-period">2024</p>
+                            <ul class="experience-list">
+                                <li>Contributed to the development of production-grade web applications within a fast-paced engineering team</li>
+                                <li>Collaborated on feature implementation, API integration, and system optimization across multiple projects</li>
+                                <li>Strengthened expertise in scalable frontend and backend development workflows</li>
+                                <li>Participated in code reviews, debugging sessions, and continuous improvement activities</li>
+                                <li>Delivered reliable technical solutions while adhering to industry standards and agile practices</li>
+                            </ul>
+                        </div>
+                        <div class="experience-details">
+                            <h3>Founder & Lead Developer</h3>
+                            <h4>DsKode</h4>
+                            <p class="experience-period">2023 — Present</p>
+                            <ul class="experience-list">
+                                <li>Leading the design and development of modern, high-quality digital solutions for clients across diverse domains</li>
+                                <li>Delivering end-to-end web applications, system prototypes, and interactive interfaces with professional precision</li>
+                                <li>Managing client relationships, requirement analysis, and technical strategy independently</li>
+                                <li>Driving the growth of a personal tech brand focused on innovation, quality delivery, and long-term value</li>
+                                <li>Applying advanced problem-solving and architectural thinking to real-world freelance projects</li>
+                            </ul>
+                        </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have a project in mind? Let's work together to create something amazing.</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>stevekamgno2@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+237 659 765 176</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Yaoundé, Cameroon</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loading" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Sending...
+                        </span>
+                    </button>
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Steve Djidyou</h3>
+                    <p>Software Engineer | Full-Stack Developer | Tech Innovator</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#projects">Projects</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <a href="#contact">Contact</a>
+                        <a href="https://github.com" target="_blank">GitHub</a>
+                        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Me</h4>
+                    <div class="social-links">
+                        <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 StevoWare.Nexus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="assets/js/three-background.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

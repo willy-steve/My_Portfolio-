@@ -1,0 +1,19 @@
+{
+  "name": "steve-kamgno-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Steve Kamgno - Software Engineering Student & Full-Stack Developer",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 3000 -o",
+    "build": "echo 'Static site - no build needed'",
+    "preview": "npx http-server -p 3000"
+  },
+  "keywords": [
+    "portfolio",
+    "three.js",
+    "responsive",
+    "web-development"
+  ],
+  "author": "Steve Kamgno",
+  "license": "MIT"
+}
