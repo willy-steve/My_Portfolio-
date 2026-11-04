@@ -1,121 +1,79 @@
-# Steve Kamgno - Portfolio Website
+# DJIDJOU STEVE — Professional Portfolio
 
-A professional, responsive developer portfolio website featuring interactive 3D effects powered by Three.js.
+> **Building Systems. Simplifying Work. Empowering People.**
 
-## Features
+The official, modern, bilingual (English / French) portfolio website for **DJIDJOU STEVE**, positioning him primarily as a **Software Engineer & DevOps Specialist**.
 
-- **Modern Design**: Clean, professional UI with smooth animations and transitions
-- **Interactive 3D Background**: Subtle Three.js particle system and wave effects in hero section
-- **Fully Responsive**: Optimized for all screen sizes (mobile, tablet, desktop)
-- **Smooth Animations**: Scroll-based animations, hover effects, and dynamic typing effect
-- **Contact Form**: Functional contact form with validation and user feedback
-- **Performance Optimized**: Lightweight animations for smooth performance
+Live Deployment: [https://dskode.netlify.app/](https://dskode.netlify.app/)
 
-## Technologies Used
+---
 
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with CSS variables, grid, flexbox
-- **JavaScript (ES6+)**: Interactive functionality
-- **Three.js**: 3D graphics and particle effects
-- **Font Awesome**: Icon library
-- **Google Fonts**: Inter and Space Grotesk fonts
+## 1. Architectural Highlights
 
-## Sections
+- **Aesthetic Direction**: Executive Engineering — clean white and deep oceanic navy palette (`#FFFFFF`, `#0A192F`, `#1D4ED8`) with generous whitespace, high readability, and strong visual hierarchy.
+- **Bilingual Engine**: Fully client-side internationalization system (`assets/js/i18n.js`) with instant switching between English and French without page reload.
+- **Accessibility & Compliance**: WCAG 2.1 AA compliant, semantic HTML5 structure, keyboard `:focus-visible` indicators, skip-navigation link, and complete `prefers-reduced-motion` support.
+- **Zero Heavy Runtimes**: Pure modern web standards (Semantic HTML5, CSS3 Custom Properties, ES6+ JavaScript) for 100/100 Core Web Vitals and ultra-fast Time-to-First-Byte (TTFB).
+- **Form Infrastructure**: Netlify Native Forms with Honeypot anti-spam protection, forwarding directly to `stevekamgno2@gmail.com`.
+- **Encrypted Community Vault**: Optional Node.js + SQLite backend (`backend/server.js`) implementing AES-256-GCM encryption and SHA-256 privacy hashing for community technical inquiries.
 
-1. **Hero Section**: Dynamic introduction with 3D background
-2. **About**: Personal biography and statistics
-3. **Skills**: Categorized technical and soft skills
-4. **Projects**: Featured project portfolio
-5. **Experience**: Education and professional background
-6. **Contact**: Contact form and information
-7. **Footer**: Quick links and social media
+---
 
-## Installation & Usage
+## 2. Directory Structure
 
-### Option 1: Direct Browser View
-Simply open `index.html` in a modern web browser.
+```
+My_Portfolio-/
+├── index.html                    # Semantic HTML5 single-page application
+├── package.json                  # Project metadata and local preview scripts
+├── README.md                     # Technical architecture documentation
+├── assets/
+│   ├── css/
+│   │   └── style.css             # Executive white/navy design system & responsive layout
+│   └── js/
+│       ├── i18n.js               # Complete English/French translation engine
+│       └── main.js               # Client controller (navigation, typing, forms)
+├── backend/
+│   ├── database.js               # Encrypted SQLite vault (AES-256-GCM + SHA-256)
+│   └── server.js                 # Local API server for community proposals
+└── data/                         # Local database storage (.db and vault backups)
+```
 
-### Option 2: Local Server (Recommended)
+---
+
+## 3. Featured Principal Projects
+
+1. **ACADSYS** — Design and implementation of an offline-first academic management system for secondary schools in Cameroon (React, Tailwind CSS, PWA, Service Worker, IndexedDB, Node.js, Express, SQLite).
+2. **DsKode Transformative Technology** — Entrepreneurial brand and technology initiative spanning Technology Systems, Human Development, and Commerce.
+3. **V-SHOP** — E-commerce concept for technology gadget wholesale and retail in Yaoundé, Cameroon.
+4. **MINDLIFT** — Native Android personal growth and well-being prototype (Kotlin, Jetpack Compose, XML, DataStore).
+5. **ISEST Institutional Website** — Official web platform for the International School of Engineering Science and Technology ([isest.edu.cm](https://isest.edu.cm/)), built during an internship at CIBER within a 4-person team.
+
+---
+
+## 4. Local Development & Preview
+
+### Static Preview
 ```bash
 # Using Python
 python -m http.server 3000
 
-# Using Node.js http-server
-npx http-server -p 3000
-
-# Using PHP
-php -S localhost:3000
+# Using Node.js
+npm run dev
 ```
+Visit `http://localhost:3000`
 
-Then visit `http://localhost:3000`
-
-## File Structure
-
+### Encrypted Community Backend (Optional)
+```bash
+npm start
 ```
-project/
-├── index.html
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   ├── main.js
-│   │   └── three-background.js
-│   └── images/
-│       └── (add your images here)
-├── package.json
-└── README.md
-```
-
-## Customization
-
-### Update Personal Information
-Edit `index.html` to update:
-- Name and bio
-- Skills and technologies
-- Project details
-- Contact information
-- Social media links
-
-### Change Colors
-Edit CSS variables in `assets/css/style.css`:
-```css
-:root {
-    --primary-color: #00d4ff;
-    --secondary-color: #0066ff;
-    --accent-color: #6366f1;
-    /* ... more variables */
-}
-```
-
-### Modify 3D Effects
-Adjust particle count and behavior in `assets/js/three-background.js`
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Opera (latest)
-
-## Performance
-
-- Optimized Three.js particle count for smooth performance
-- Lazy-loaded animations on scroll
-- Efficient CSS transitions
-- Minimal JavaScript overhead
-
-## License
-
-MIT License - Feel free to use this template for your own portfolio
-
-## Contact
-
-**Steve Kamgno**
-- Email: steve@example.com
-- GitHub: [github.com](https://github.com)
-- LinkedIn: [linkedin.com](https://linkedin.com)
+Starts the secure community API server at `http://localhost:3001`.
 
 ---
 
-Built with ❤️ by Steve Kamgno
+## 5. Contact Information
+
+- **Email**: [stevekamgno2@gmail.com](mailto:stevekamgno2@gmail.com)
+- **Phone / WhatsApp**: +237 659 745 176
+- **Location**: Yaoundé, Cameroon
+- **GitHub**: [https://github.com/steve-djidyou](https://github.com/steve-djidyou)
+- **LinkedIn**: [https://linkedin.com/in/steve-djidyou](https://linkedin.com/in/steve-djidyou)
