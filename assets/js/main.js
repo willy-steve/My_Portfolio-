@@ -7,54 +7,6 @@
 (function () {
   'use strict';
 
-  // Approved Positioning Titles for dynamic typing
-  const TYPING_TITLES = [
-    "Software Engineer & DevOps Specialist",
-    "Systems Architect & Offline-First Engineer",
-    "Founder, DsKode Transformative Technology"
-  ];
-
-  let titleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typingSpeed = 80;
-
-  /* ==========================================================================
-     Dynamic Typing Animation
-     ========================================================================== */
-  function handleTypeWriter() {
-    const textElement = document.getElementById('dynamicText');
-    if (!textElement) return;
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      textElement.textContent = TYPING_TITLES[0];
-      return;
-    }
-
-    const currentTitle = TYPING_TITLES[titleIndex];
-
-    if (!isDeleting && charIndex <= currentTitle.length) {
-      textElement.textContent = currentTitle.substring(0, charIndex);
-      charIndex++;
-      typingSpeed = 80;
-    } else if (isDeleting && charIndex >= 0) {
-      textElement.textContent = currentTitle.substring(0, charIndex);
-      charIndex--;
-      typingSpeed = 40;
-    }
-
-    if (charIndex === currentTitle.length + 1 && !isDeleting) {
-      isDeleting = true;
-      typingSpeed = 2400; // Hold at full text
-    } else if (charIndex === 0 && isDeleting) {
-      isDeleting = false;
-      titleIndex = (titleIndex + 1) % TYPING_TITLES.length;
-      typingSpeed = 450; // Pause before next cycle
-    }
-
-    setTimeout(handleTypeWriter, typingSpeed);
-  }
-
   /* ==========================================================================
      Navigation, Dropdown & Mobile Drawer Architecture
      ========================================================================== */
@@ -74,46 +26,85 @@
       }
     }, { passive: true });
 
+    const setMobileMenuOpen = (isOpen, restoreFocus = false) => {
+      if (!navToggle || !mobileDrawer) return;
+      mobileDrawer.classList.toggle('active', isOpen);
+      navToggle.classList.toggle('active', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute(
+        'aria-label',
+        window.i18n ? window.i18n.t(isOpen ? 'nav.closeMenu' : 'nav.openMenu') : (isOpen ? 'Close navigation menu' : 'Open navigation menu')
+      );
+      mobileDrawer.setAttribute('aria-hidden', String(!isOpen));
+      mobileDrawer.inert = !isOpen;
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (restoreFocus) navToggle.focus();
+      if (isOpen) mobileDrawer.querySelector('a')?.focus();
+    };
+
+    if (mobileDrawer) {
+      mobileDrawer.inert = true;
+    }
+
     // Accessible "More" Dropdown Toggle
     if (dropdownToggle && dropdownMenu) {
       dropdownToggle.addEventListener('click', (e) => {
         e.stopPropagation();
         const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
         dropdownToggle.setAttribute('aria-expanded', String(!expanded));
-        dropdownMenu.style.opacity = expanded ? '0' : '1';
-        dropdownMenu.style.visibility = expanded ? 'hidden' : 'visible';
-        dropdownMenu.style.transform = expanded ? 'translateY(8px)' : 'translateY(0)';
-        dropdownMenu.style.pointerEvents = expanded ? 'none' : 'auto';
       });
 
       document.addEventListener('click', () => {
         dropdownToggle.setAttribute('aria-expanded', 'false');
-        dropdownMenu.style.opacity = '0';
-        dropdownMenu.style.visibility = 'hidden';
-        dropdownMenu.style.transform = 'translateY(8px)';
-        dropdownMenu.style.pointerEvents = 'none';
       });
     }
 
     // Mobile Drawer Toggle
     if (navToggle && mobileDrawer) {
       navToggle.addEventListener('click', () => {
-        const isOpen = mobileDrawer.classList.toggle('active');
-        navToggle.classList.toggle('active');
-        navToggle.setAttribute('aria-expanded', String(isOpen));
-        mobileDrawer.setAttribute('aria-hidden', String(!isOpen));
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+        const isOpen = navToggle.getAttribute('aria-expanded') !== 'true';
+        setMobileMenuOpen(isOpen);
       });
 
       // Close mobile drawer on link click
       mobileDrawer.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-          mobileDrawer.classList.remove('active');
-          navToggle.classList.remove('active');
-          navToggle.setAttribute('aria-expanded', 'false');
-          mobileDrawer.setAttribute('aria-hidden', 'true');
-          document.body.style.overflow = '';
+          setMobileMenuOpen(false);
         });
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          if (navToggle.getAttribute('aria-expanded') === 'true') {
+            setMobileMenuOpen(false, true);
+          } else if (dropdownToggle?.getAttribute('aria-expanded') === 'true') {
+            dropdownToggle.setAttribute('aria-expanded', 'false');
+            dropdownToggle.focus();
+          }
+        } else if (event.key === 'Tab' && navToggle.getAttribute('aria-expanded') === 'true') {
+          const focusable = mobileDrawer.querySelectorAll('a[href], button:not([disabled])');
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+
+          if (event.shiftKey && (document.activeElement === first || !mobileDrawer.contains(document.activeElement))) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && (document.activeElement === last || !mobileDrawer.contains(document.activeElement))) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1100 && navToggle.getAttribute('aria-expanded') === 'true') {
+          setMobileMenuOpen(false);
+        }
+      }, { passive: true });
+
+      window.addEventListener('languageChanged', () => {
+        const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-label', window.i18n.t(isOpen ? 'nav.closeMenu' : 'nav.openMenu'));
       });
     }
 
@@ -132,11 +123,37 @@
 
           window.scrollTo({
             top: offsetPosition,
-            behavior: 'smooth'
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
           });
         }
       });
     });
+  }
+
+  /* ==========================================================================
+     Quiet, one-time section reveals
+     ========================================================================== */
+  function initMotion() {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const revealTargets = document.querySelectorAll(
+      '.about-spread, .journey-milestone, .matrix-quadrant, .project-case-dossier, .experience-item-card, .cert-entry-card, .mentorship-pillars-grid, .community-editorial-card, .contact-editorial-grid'
+    );
+    if (!revealTargets.length) return;
+
+    revealTargets.forEach(target => target.setAttribute('data-reveal', ''));
+    document.documentElement.classList.add('motion-ready');
+
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    revealTargets.forEach(target => observer.observe(target));
   }
 
   /* ==========================================================================
@@ -304,9 +321,9 @@
      Application Bootstrap
      ========================================================================== */
   function init() {
-    handleTypeWriter();
     initNavigation();
     initActiveNavSpy();
+    initMotion();
     initContactForm();
     initCommunityForm();
   }

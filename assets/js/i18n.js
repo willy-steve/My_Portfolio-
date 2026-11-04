@@ -127,6 +127,21 @@ const translations = {
       roleLabel: "Specific Role",
       problemLabel: "Problem Addressed",
       solutionLabel: "Architectural Solution",
+      visionLabel: "Vision & Purpose",
+      modelLabel: "Tripartite Model",
+      marketLabel: "Market Concept",
+      architectureLabel: "Multi-Tier Architecture",
+      stackLabel: "Original Implementation Stack",
+      modernizationLabel: "Future Modernization Plan (Conceptual Roadmap)",
+      purposeLabel: "Purpose & Focus",
+      featuresLabel: "Engineering & Features",
+      clarificationLabel: "Important Clarification",
+      strategicScopeLabel: "Strategic Scope",
+      strategicScopeNote: "Existing activities clearly distinguished from long-term hardware assembly plans.",
+      verificationLabel: "Project Verification",
+      visualisationLabel: "3D Product Visualisation",
+      institutionalScopeLabel: "Institutional Scope",
+      teamContributionsLabel: "Team Contributions",
       pipelineTitle: "ACADSYS Offline-First Synchronization Architecture",
       viewProject: "Visit Live Website",
       pipeline: {
@@ -189,6 +204,7 @@ const translations = {
         solution: "Engineered a native Android application prioritizing user privacy and emotional grounding. Delivers daily motivation, mood tracking, personal journaling, and self-reflection exercises.",
         role: "Independent Mobile Developer",
         status: "Working native prototype. Note: Designed as a supportive personal development tool, not as a clinical or medical diagnostic system.",
+        clarification: "Designed strictly as an encouraging personal development and emotional awareness prototype; it does not provide medical diagnoses or replace clinical psychological care.",
         featuresList: "Daily motivational quotes, mood tracker, encrypted personal journal, general well-being advice, self-reflection modules."
       },
       isest: {
@@ -198,6 +214,7 @@ const translations = {
         solution: "Collaborated as part of a four-person development team during an internship at CIBER. Engineered sitemap architecture, overall structural organization, page previews, and significant frontend and backend modules.",
         role: "Full-Stack Developer (Four-Person Team at CIBER)",
         status: "Live institutional platform operating at isest.edu.cm.",
+        verificationNote: "Developed in collaboration with CIBER (February – April 2026). Live production platform:",
         period: "February – April 2026"
       }
     },
@@ -309,6 +326,10 @@ const translations = {
         topic: "Topic or Suggestion Title",
         details: "Details or Context",
         submit: "Submit Proposal",
+        namePlaceholder: "Optional / Anonymous",
+        emailPlaceholder: "For reply if desired",
+        topicPlaceholder: "e.g. Offline-First Sync Architecture in Low-Bandwidth Regions",
+        detailsPlaceholder: "Briefly describe your question, use-case, or idea...",
         sending: "Encrypting & Transmitting...",
         success: "Thank you! Your suggestion has been securely submitted.",
         error: "An error occurred while submitting. Please try again or reach out directly."
@@ -332,6 +353,10 @@ const translations = {
       subjectLabel: "Subject / Project Scope",
       messageLabel: "Project Details / Message",
       submitBtn: "Send Message",
+      namePlaceholder: "e.g. Dr. Alexis Fotso",
+      emailPlaceholder: "you@domain.com",
+      subjectPlaceholder: "e.g. Academic Management System Consultation",
+      messagePlaceholder: "Outline your technical requirements, goals, or timeline...",
       sendingBtn: "Transmitting Message...",
       successMsg: "Thank you for reaching out. Your message has been sent successfully. I will respond promptly.",
       errorMsg: "Submission encountered an issue. Please reach out directly via email or WhatsApp."
@@ -466,6 +491,21 @@ const translations = {
       roleLabel: "Rôle Spécifique",
       problemLabel: "Problème Traité",
       solutionLabel: "Solution Architecturale",
+      visionLabel: "Vision & Objectifs",
+      modelLabel: "Modèle Tripartite",
+      marketLabel: "Concept Commercial",
+      architectureLabel: "Architecture Multi-Niveaux",
+      stackLabel: "Technologies de l'Implémentation Initiale",
+      modernizationLabel: "Plan de Modernisation Futur (Feuille de Route Conceptuelle)",
+      purposeLabel: "Objectif & Approche",
+      featuresLabel: "Ingénierie & Fonctionnalités",
+      clarificationLabel: "Précision Importante",
+      strategicScopeLabel: "Portée Stratégique",
+      strategicScopeNote: "Les activités actuelles sont clairement distinguées des projets d'assemblage à long terme.",
+      verificationLabel: "Vérification du Projet",
+      visualisationLabel: "Visualisation 3D des Produits",
+      institutionalScopeLabel: "Portée Institutionnelle",
+      teamContributionsLabel: "Contributions de l'Équipe",
       pipelineTitle: "Architecture de Synchronisation Offline-First d'ACADSYS",
       viewProject: "Visiter le Site Web",
       pipeline: {
@@ -528,6 +568,7 @@ const translations = {
         solution: "Développement d'une application Android native respectant la confidentialité absolue des données. Propose citations quotidiennes, suivi de l'humeur, journal personnel et conseils d'épanouissement.",
         role: "Développeur Mobile Indépendant",
         status: "Prototype natif fonctionnel. Remarque : Conçu comme un support d'auto-réflexion et d'encouragement, ne remplace en aucun cas un avis médical.",
+        clarification: "Prototype conçu pour encourager le développement personnel et la prise de conscience émotionnelle ; il ne fournit aucun diagnostic médical et ne remplace pas un suivi clinique.",
         featuresList: "Citations inspirantes quotidiennes, moniteur d'humeur, journal intime chiffré, conseils de bien-être, introspection guidée."
       },
       isest: {
@@ -537,6 +578,7 @@ const translations = {
         solution: "Contribution active au sein d'une équipe de quatre développeurs lors d'un stage chez CIBER. Élaboration du plan de site, structuration globale, maquettage dynamique et développement full-stack.",
         role: "Développeur Full-Stack (Équipe de 4 personnes chez CIBER)",
         status: "Plateforme institutionnelle déployée et accessible sur isest.edu.cm.",
+        verificationNote: "Développé en collaboration avec CIBER (février – avril 2026). Plateforme de production :",
         period: "Février – Avril 2026"
       }
     },
@@ -648,6 +690,10 @@ const translations = {
         topic: "Titre du Sujet ou de la Proposition",
         details: "Détails ou Contexte",
         submit: "Soumettre la Proposition",
+        namePlaceholder: "Facultatif / Anonyme",
+        emailPlaceholder: "Pour recevoir une réponse, si vous le souhaitez",
+        topicPlaceholder: "ex. Synchronisation hors ligne en zone à faible connectivité",
+        detailsPlaceholder: "Décrivez brièvement votre question, besoin ou idée...",
         sending: "Chiffrement & Envoi en cours...",
         success: "Merci ! Votre proposition a été enregistrée en toute sécurité.",
         error: "Une erreur est survenue lors de l'envoi. Veuillez réessayer ou me contacter directement."
@@ -671,6 +717,10 @@ const translations = {
       subjectLabel: "Objet / Envergure du Projet",
       messageLabel: "Détails du Projet / Message",
       submitBtn: "Envoyer le Message",
+      namePlaceholder: "ex. Dr Alexis Fotso",
+      emailPlaceholder: "vous@domaine.com",
+      subjectPlaceholder: "ex. Consultation sur un système de gestion scolaire",
+      messagePlaceholder: "Décrivez vos besoins techniques, objectifs ou échéances...",
       sendingBtn: "Transmission du message...",
       successMsg: "Merci pour votre message. Il a été transmis avec succès. Je vous répondrai dans les plus brefs délais.",
       errorMsg: "La transmission a échoué. Veuillez me contacter directement par email ou WhatsApp."
