@@ -1230,6 +1230,33 @@ a:hover {
   font-weight: 700;
 }
 
+/* Recruiter CV Callout Banner */
+.recruiter-cv-callout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--bg-canvas);
+  border: 1px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
+  margin-top: 0.5rem;
+}
+
+.recruiter-cv-text {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.recruiter-icon {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
 /* Dual Column Layout */
 .dual-editorial-grid {
   display: grid;

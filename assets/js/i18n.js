@@ -8,6 +8,10 @@ const translations = {
   en: {
     nav: {
       brandSub: "Software Engineer & DevOps",
+      mainLabel: "Main navigation",
+      openMenu: "Open navigation menu",
+      closeMenu: "Close navigation menu",
+      languageSwitcher: "Language",
       about: "About",
       expertise: "Expertise",
       projects: "Projects",
@@ -19,6 +23,7 @@ const translations = {
       mentorship: "Mentorship",
       community: "Community",
       contact: "Contact",
+      downloadCv: "Download CV",
       contactBtn: "Get in Touch"
     },
     hero: {
@@ -28,6 +33,7 @@ const translations = {
       bio: "Specialising in resilient software architecture, offline-first systems, and reliable CI/CD pipelines. Transforming complex operational bottlenecks into elegant, high-availability digital solutions.",
       ctaProjects: "Explore Principal Projects",
       ctaContact: "Direct Contact",
+      downloadCv: "Download CV (PDF)",
       metaPill: "Systems Architect • Yaoundé, CM",
       brandBadge: "Founder, DsKode Tech"
     },
@@ -218,7 +224,9 @@ const translations = {
           "Assisted in backend API design, database maintenance, and testing across enterprise web applications.",
           "Collaborated on code reviews, debugging, and systems optimization."
         ]
-      }
+      },
+      downloadCvBanner: "Recruiting for an engineering role? Download my complete verified resume.",
+      downloadCvBtn: "Download Full Resume (PDF)"
     },
     education: {
       eyebrow: "Academic Foundation",
@@ -339,6 +347,10 @@ const translations = {
   fr: {
     nav: {
       brandSub: "Ingénieur Logiciel & DevOps",
+      mainLabel: "Navigation principale",
+      openMenu: "Ouvrir le menu de navigation",
+      closeMenu: "Fermer le menu de navigation",
+      languageSwitcher: "Langue",
       about: "À Propos",
       expertise: "Expertise",
       projects: "Projets",
@@ -350,6 +362,7 @@ const translations = {
       mentorship: "Mentorat",
       community: "Communauté",
       contact: "Contact",
+      downloadCv: "Télécharger CV",
       contactBtn: "Prendre Contact"
     },
     hero: {
@@ -359,6 +372,7 @@ const translations = {
       bio: "Spécialisé en architecture logicielle résiliente, systèmes offline-first et pipelines CI/CD fiables. Transformer les défis opérationnels complexes en solutions numériques élégantes et hautement disponibles.",
       ctaProjects: "Explorer les Projets Clés",
       ctaContact: "Contact Direct",
+      downloadCv: "Télécharger mon CV (PDF)",
       metaPill: "Architecte Système • Yaoundé, CM",
       brandBadge: "Fondateur, DsKode Tech"
     },
@@ -549,7 +563,9 @@ const translations = {
           "Contribution à l'architecture d'API backend, maintenance de bases de données et phases de tests applicatifs.",
           "Collaboration active sur la résolution de bugs et l'optimisation des performances des projets clients."
         ]
-      }
+      },
+      downloadCvBanner: "Vous recrutez pour un poste d'ingénieur ? Téléchargez mon CV complet certifié.",
+      downloadCvBtn: "Télécharger le CV complet (PDF)"
     },
     education: {
       eyebrow: "Parcours Académique",

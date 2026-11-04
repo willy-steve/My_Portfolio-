@@ -90,24 +90,24 @@
       </div>
 
       <!-- Curated Desktop Navigation (Zero Horizontal Overflow) -->
-      <nav aria-label="Main Navigation">
+      <nav aria-label="Main Navigation" data-i18n-aria="nav.mainLabel">
         <ul class="nav-menu" id="navMenu">
           <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
           <li><a href="#skills" class="nav-link" data-i18n="nav.expertise">Expertise</a></li>
           <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
           <li><a href="#journey" class="nav-link" data-i18n="nav.journey">My Journey</a></li>
-          <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
-          <li><a href="#teaching" class="nav-link" data-i18n="nav.leadership">Leadership</a></li>
           
-          <!-- "More" Flyout Dropdown -->
           <li class="nav-dropdown">
-            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
-              <span data-i18n="nav.more">More</span> <i class="fas fa-chevron-down" style="font-size: 0.75rem;"></i>
+            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="desktopMoreMenu">
+              <span data-i18n="nav.more">More</span> <i class="fas fa-chevron-down" aria-hidden="true"></i>
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id="desktopMoreMenu">
+              <li class="dropdown-item"><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+              <li class="dropdown-item"><a href="#teaching" data-i18n="nav.leadership">Leadership</a></li>
               <li class="dropdown-item"><a href="#education" data-i18n="nav.education">Education</a></li>
               <li class="dropdown-item"><a href="#mentorship" data-i18n="nav.mentorship">Mentorship</a></li>
               <li class="dropdown-item"><a href="#community" data-i18n="nav.community">Community</a></li>
+              <li class="dropdown-item"><a href="assets/docs/CV_DJIDJOU_STEVE.pdf" download="CV_DJIDJOU_STEVE.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); font-weight: 600;"><i class="fas fa-file-pdf" style="margin-right: 6px;"></i><span data-i18n="nav.downloadCv">Download CV</span></a></li>
             </ul>
           </li>
         </ul>
@@ -120,12 +120,10 @@
           <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
         </div>
 
-        <a href="#contact" class="btn btn-primary btn-sm" data-i18n="nav.contactBtn">Get in Touch</a>
+        <a href="#contact" class="btn btn-primary btn-sm nav-contact-link" data-i18n="nav.contactBtn">Get in Touch</a>
 
-        <button type="button" class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Open navigation menu" data-i18n-aria="nav.openMenu" aria-controls="mobileNavDrawer" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
@@ -143,6 +141,16 @@
     <a href="#mentorship" data-i18n="nav.mentorship">Mentorship</a>
     <a href="#community" data-i18n="nav.community">Community</a>
     <a href="#contact" data-i18n="nav.contact">Contact</a>
+    <div class="mobile-drawer-utilities">
+      <div class="lang-toggle-pill" role="group" aria-label="Language Switcher" data-i18n-aria="nav.languageSwitcher">
+        <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+      </div>
+      <a href="#contact" class="btn btn-primary mobile-drawer-cta" data-i18n="nav.contactBtn">Get in Touch</a>
+    </div>
+    <a href="assets/docs/CV_DJIDJOU_STEVE.pdf" download="CV_DJIDJOU_STEVE.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); font-weight: 700; margin-top: 0.5rem; display: flex; align-items: center; gap: 8px;">
+      <i class="fas fa-file-pdf"></i> <span data-i18n="hero.downloadCv">Download CV (PDF)</span>
+    </a>
   </div>
 
   <!-- Main Landmark -->
@@ -162,10 +170,11 @@
             </div>
 
             <h1 class="hero-name-editorial">DJIDJOU STEVE</h1>
+            <p class="hero-role-editorial" data-i18n="hero.badge">Software Engineer & DevOps Specialist</p>
             
-            <div class="hero-tagline-editorial" data-i18n="hero.tagline">
+            <p class="hero-tagline-editorial" data-i18n="hero.tagline">
               Building Systems. Simplifying Work. Empowering People.
-            </div>
+            </p>
 
             <p class="hero-lead-bio" data-i18n="hero.bio">
               Specialising in resilient software architecture, offline-first systems, and reliable CI/CD pipelines. Transforming complex operational bottlenecks into elegant, high-availability digital solutions.
@@ -175,6 +184,10 @@
               <a href="#projects" class="btn btn-primary">
                 <span data-i18n="hero.ctaProjects">Explore Principal Projects</span>
                 <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="assets/docs/CV_DJIDJOU_STEVE.pdf" download="CV_DJIDJOU_STEVE.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <i class="fas fa-file-pdf" style="color: var(--color-primary);"></i>
+                <span data-i18n="hero.downloadCv">Download CV (PDF)</span>
               </a>
               <a href="#contact" class="btn btn-secondary" data-i18n="hero.ctaContact">Direct Contact</a>
             </div>
@@ -198,7 +211,8 @@
           <!-- Hero Studio Portrait Card -->
           <div class="hero-portrait-card">
             <div class="portrait-frame">
-              <img src="assets/images/steve-hero-studio.jpg" alt="DJIDJOU STEVE - Software Engineer & DevOps Specialist" class="portrait-img" width="440" height="550" onerror="this.src='assets/images/steve-seated.jpg';">
+              <img src="assets/images/steve-hero-studio.jpg" alt="DJIDJOU STEVE, Software Engineer and DevOps Specialist" class="portrait-img" width="896" height="1120" fetchpriority="high">
+              <span class="portrait-brand-note" data-i18n="hero.brandBadge">Founder, DsKode Tech</span>
               <div class="portrait-caption-pill">
                 <span data-i18n="hero.metaPill">Systems Architect • Yaoundé, CM</span>
               </div>
@@ -906,6 +920,21 @@
             </ul>
           </div>
 
+          <!-- Recruiter CV Download Callout -->
+          <div class="recruiter-cv-callout">
+            <div class="recruiter-cv-text">
+              <i class="fas fa-file-contract recruiter-icon"></i>
+              <div>
+                <h4 style="color: var(--text-display); font-size: 1rem; margin-bottom: 2px;" data-i18n="experience.downloadCvBanner">Recruiting for an engineering role? Download my complete verified resume.</h4>
+                <p style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 0;">Verified qualifications, enterprise experience, and pedagogical leadership.</p>
+              </div>
+            </div>
+            <a href="assets/docs/CV_DJIDJOU_STEVE.pdf" download="CV_DJIDJOU_STEVE.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <i class="fas fa-file-download"></i>
+              <span data-i18n="experience.downloadCvBtn">Download Full Resume (PDF)</span>
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1301,6 +1330,7 @@
             <li><a href="#journey" data-i18n="nav.journey">My Journey</a></li>
             <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
             <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+            <li><a href="assets/docs/CV_DJIDJOU_STEVE.pdf" download="CV_DJIDJOU_STEVE.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); font-weight: 600;"><i class="fas fa-file-pdf"></i> <span data-i18n="hero.downloadCv">Download CV (PDF)</span></a></li>
           </ul>
         </div>
 
