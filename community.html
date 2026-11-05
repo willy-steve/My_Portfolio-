@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vote on architecture topics, share technical perspectives, and suggest what the community should explore next.">
+  <title>Architecture Radar & Community | DJIDJOU STEVE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261105a">
+</head>
+<body class="community-page">
+  <a href="#main" class="skip-link" data-i18n="communityBoard.skip">Skip to community content</a>
+
+  <header class="community-topbar">
+    <div class="container community-topbar-inner">
+      <a href="index.html#home" class="brand-signature" aria-label="DJIDJOU STEVE Home">
+        <span class="brand-monogram">DS</span>
+        <span class="brand-meta">
+          <span class="brand-name">DJIDJOU STEVE</span>
+          <span class="brand-badge" data-i18n="nav.brandSub">Software Engineer & DevOps</span>
+        </span>
+      </a>
+      <nav class="community-topbar-actions" aria-label="Community navigation">
+        <a href="index.html#home" data-i18n="communityBoard.homeLink">Portfolio</a>
+        <div class="lang-toggle-pill" role="group" aria-label="Language" data-i18n-aria="nav.languageSwitcher">
+          <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+        </div>
+        <a class="btn btn-primary btn-sm" href="index.html#contact" data-i18n="nav.contactBtn">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="community-hero section-padding">
+      <div class="container">
+        <span class="eyebrow"><i class="fas fa-satellite-dish" aria-hidden="true"></i> <span data-i18n="communityBoard.eyebrow">Interactive Tech Poll & Architecture Radar</span></span>
+        <h1 class="section-title" data-i18n="communityBoard.title">Help shape what we build and explore next.</h1>
+        <p class="section-subtitle" data-i18n="communityBoard.subtitle">Vote on a real engineering challenge, compare approaches, and bring your own question to the community.</p>
+        <div class="community-proof-strip">
+          <span><i class="fas fa-bolt" aria-hidden="true"></i> <span data-i18n="communityBoard.quickVote">One-tap voting</span></span>
+          <span><i class="fas fa-comments" aria-hidden="true"></i> <span data-i18n="communityBoard.openDiscussion">Open technical discussions</span></span>
+          <span><i class="fas fa-user-plus" aria-hidden="true"></i> <span data-i18n="communityBoard.noAccount">Join with a display name — no account needed</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="community-board-section section-padding bg-surface-band" aria-labelledby="radar-title">
+      <div class="container">
+        <div class="community-board-heading">
+          <div>
+            <span class="eyebrow" data-i18n="communityBoard.radarEyebrow">The Architecture Radar</span>
+            <h2 class="section-title" id="radar-title" data-i18n="communityBoard.radarTitle">What should we tackle next?</h2>
+            <p class="section-subtitle" data-i18n="communityBoard.radarSubtitle">Choose one topic. Results update for everyone as the community votes.</p>
+          </div>
+          <div class="community-vote-count" aria-live="polite">
+            <strong id="totalVotes">—</strong>
+            <span id="voteLabel" data-i18n="communityBoard.votesCast">community votes</span>
+          </div>
+        </div>
+
+        <div class="community-topic-grid" id="topicGrid" aria-live="polite"></div>
+        <p id="boardStatus" class="community-status" role="status" aria-live="polite" data-i18n="communityBoard.loading">Loading the community radar…</p>
+
+        <div class="community-board-tabs" role="tablist" aria-label="Community actions" data-i18n-aria="communityBoard.tabsLabel">
+          <button type="button" class="community-tab is-active" id="discussionTab" role="tab" aria-selected="true" aria-controls="discussionPanel" data-community-tab="discussion" data-i18n="communityBoard.discussionTab">Discuss a topic</button>
+          <button type="button" class="community-tab" id="suggestTab" role="tab" aria-selected="false" aria-controls="suggestPanel" tabindex="-1" data-community-tab="suggest" data-i18n="communityBoard.suggestTab">Suggest a topic</button>
+        </div>
+
+        <section class="community-discussion" id="discussionPanel" role="tabpanel" aria-labelledby="discussionTab">
+          <div id="discussion" aria-labelledby="discussionTitle">
+            <div class="discussion-heading">
+              <div>
+                <span class="eyebrow" data-i18n="communityBoard.discussionEyebrow">Community exchange</span>
+                <h2 id="discussionTitle" data-i18n="communityBoard.chooseTopic">Choose a topic to join its discussion.</h2>
+              </div>
+              <a class="text-link" id="privateContactLink" href="index.html#contact" data-i18n="communityBoard.contactLink">Ask Steve privately</a>
+            </div>
+            <div id="discussionList" class="discussion-list">
+              <p class="discussion-empty" data-i18n="communityBoard.emptyDiscussion">Select a radar topic to read and add to the conversation.</p>
+            </div>
+            <form id="discussionForm" class="discussion-form" hidden>
+              <div class="form-field-group">
+                <label for="displayName" data-i18n="communityBoard.displayName">Your community name</label>
+                <input id="displayName" name="displayName" class="form-input-control" maxlength="40" autocomplete="nickname" required data-i18n-placeholder="communityBoard.displayNamePlaceholder" placeholder="How should we address you?">
+              </div>
+              <div class="form-field-group">
+                <label for="discussionMessage" data-i18n="communityBoard.replyLabel">Your perspective</label>
+                <textarea id="discussionMessage" name="message" class="form-input-control" rows="3" maxlength="1000" required data-i18n-placeholder="communityBoard.replyPlaceholder" placeholder="Share an approach, trade-off, or question…"></textarea>
+              </div>
+              <div class="discussion-submit-row">
+                <p data-i18n="communityBoard.noAccountNote">No account or email required. Keep the discussion constructive and avoid sharing private information.</p>
+                <button type="submit" class="btn btn-primary" data-i18n="communityBoard.joinDiscussion">Join the discussion</button>
+              </div>
+              <p id="discussionStatus" class="community-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+
+        <section class="community-suggest-section" id="suggestPanel" role="tabpanel" aria-labelledby="suggestTab" hidden>
+          <div class="community-suggest-grid">
+            <div>
+              <span class="eyebrow" data-i18n="communityBoard.suggestEyebrow">Bring the next challenge</span>
+              <h2 class="section-title" id="suggest-title" data-i18n="communityBoard.suggestTitle">Have a question worth exploring?</h2>
+              <p class="section-subtitle" data-i18n="communityBoard.suggestSubtitle">Suggest a technical topic. Suggestions are reviewed before they appear publicly on the radar; your email stays private and is optional.</p>
+              <div class="suggestion-review-note"><i class="fas fa-shield-alt" aria-hidden="true"></i> <span data-i18n="communityBoard.reviewNote">Your proposal is sent privately for review. It will never appear publicly with your name or email.</span></div>
+            </div>
+
+            <div class="community-suggest-panel">
+              <form id="communityForm" class="community-form" name="community-proposal" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="community-proposal">
+                <p class="community-honeypot">
+                  <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                </p>
+                <div class="form-field-group">
+                  <label for="commName" data-i18n="community.form.name">Your Name</label>
+                  <input type="text" id="commName" name="name" class="form-input-control" maxlength="80" autocomplete="name" data-i18n-placeholder="community.form.namePlaceholder" placeholder="Optional / Anonymous">
+                </div>
+                <div class="form-field-group">
+                  <label for="commEmail" data-i18n="community.form.email">Your Email Address</label>
+                  <input type="email" id="commEmail" name="email" class="form-input-control" maxlength="254" autocomplete="email" data-i18n-placeholder="community.form.emailPlaceholder" placeholder="For reply if desired">
+                </div>
+                <div class="form-field-group">
+                  <label for="commTopic" data-i18n="community.form.topic">Topic or Suggestion Title *</label>
+                  <input type="text" id="commTopic" name="topic" class="form-input-control" maxlength="120" data-i18n-placeholder="community.form.topicPlaceholder" placeholder="e.g. Offline-First Sync Architecture in Low-Bandwidth Regions" required>
+                </div>
+                <div class="form-field-group">
+                  <label for="commDetails" data-i18n="community.form.details">Details or Context</label>
+                  <textarea id="commDetails" name="details" class="form-input-control" rows="4" maxlength="2000" data-i18n-placeholder="community.form.detailsPlaceholder" placeholder="Briefly describe your question, use-case, or idea…"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary community-submit-btn">
+                  <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                  <span data-i18n="community.form.submit">Submit Proposal</span>
+                </button>
+                <div id="communityMessage" class="form-feedback-message" role="status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="community-footer">
+    <div class="container">
+      <a href="index.html#home" data-i18n="communityBoard.backToPortfolio">← Back to the portfolio</a>
+      <span data-i18n="communityBoard.footerNote">Built for practical ideas, thoughtful debate, and better systems.</span>
+    </div>
+  </footer>
+
+  <script>
+    window.COMMUNITY_API_BASE = window.COMMUNITY_API_BASE || (['localhost', '127.0.0.1'].includes(location.hostname) && location.port === '3000' ? `${location.protocol}//${location.hostname}:3001/api` : '/api');
+  </script>
+  <script src="assets/js/i18n.js?v=20261105a"></script>
+  <script src="assets/js/main.js?v=20261105a"></script>
+  <script src="assets/js/community.js?v=20261105a"></script>
+</body>
+</html>

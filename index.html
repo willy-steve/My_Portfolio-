@@ -72,7 +72,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261104b">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261105a">
 </head>
 <body>
   <!-- Accessibility Skip Navigation -->
@@ -108,7 +108,7 @@
               <li class="dropdown-item"><a href="#teaching" data-i18n="nav.leadership">Leadership</a></li>
               <li class="dropdown-item"><a href="#education" data-i18n="nav.education">Education</a></li>
               <li class="dropdown-item"><a href="#mentorship" data-i18n="nav.mentorship">Mentorship</a></li>
-              <li class="dropdown-item"><a href="#community" data-i18n="nav.community">Community</a></li>
+              <li class="dropdown-item"><a href="community.html" data-i18n="nav.community">Community</a></li>
               <li class="dropdown-item"><a href="assets/docs/CV_DJIDJOU_STEVE.pdf" download="CV_DJIDJOU_STEVE.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); font-weight: 600;"><i class="fas fa-file-pdf" style="margin-right: 6px;"></i><span data-i18n="nav.downloadCv">Download CV</span></a></li>
             </ul>
           </li>
@@ -141,7 +141,7 @@
     <a href="#teaching" data-i18n="nav.leadership">Leadership</a>
     <a href="#education" data-i18n="nav.education">Education</a>
     <a href="#mentorship" data-i18n="nav.mentorship">Mentorship</a>
-    <a href="#community" data-i18n="nav.community">Community</a>
+    <a href="community.html" data-i18n="nav.community">Community</a>
     <a href="#contact" data-i18n="nav.contact">Contact</a>
     <div class="mobile-drawer-utilities">
       <div class="lang-toggle-pill" role="group" aria-label="Language Switcher" data-i18n-aria="nav.languageSwitcher">
@@ -213,10 +213,10 @@
           <!-- Hero Studio Portrait Card -->
           <div class="hero-portrait-card">
             <div class="portrait-frame">
-              <img src="assets/images/steve-seated.jpg" alt="DJIDJOU STEVE seated at a professional event" class="portrait-img" width="768" height="1024" fetchpriority="high">
-              <span class="portrait-brand-note" data-i18n="hero.brandBadge">Founder, DsKode Tech</span>
+              <img src="assets/images/Thoughtful_Portrait.png" alt="DJIDJOU STEVE seated at a professional event" class="portrait-img" width="768" height="1024" fetchpriority="high">
+              <!--<span class="portrait-brand-note" data-i18n="hero.brandBadge">Founder, DsKode Tech</span>-->
               <div class="portrait-caption-pill">
-                <span data-i18n="hero.metaPill">Systems Architect • Yaoundé, CM</span>
+                <span data-i18n="hero.metaPill">Systems Architect: Yaoundé, CM</span>
               </div>
             </div>
           </div>
@@ -1105,61 +1105,18 @@
     </section>
 
     <!-- ==========================================================================
-         Community Ideas & Technical Inquiries (Encrypted & Secure)
+         Community Architecture Radar
          ========================================================================== -->
     <section id="community" class="community-section section-padding bg-surface-band">
       <div class="container">
         <div class="community-editorial-card">
-          <div class="section-header text-center">
-            <span class="eyebrow" data-i18n="community.eyebrow">Knowledge & Exchange</span>
-            <h2 class="section-title" data-i18n="community.title">Community Ideas & Technical Inquiries</h2>
-            <p class="section-subtitle" data-i18n="community.subtitle">
-              Have a proposal, technical inquiry, or topic suggestion? Submit it securely below.
-            </p>
-          </div>
-
-          <div class="encrypted-privacy-banner">
-            <i class="fas fa-lock"></i>
-            <span data-i18n="community.privacyNote">
-              Submissions are transmitted securely via encrypted channels and archived with strict privacy protection.
-            </span>
-          </div>
-
-          <form id="communityForm" class="community-form" name="community-proposal" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="community-proposal">
-            <p style="display: none;">
-              <label>Don’t fill this out if you're human: <input name="bot-field"></label>
-            </p>
-
-            <div class="dossier-narrative-split">
-              <div class="form-field-group">
-                <label for="commName" data-i18n="community.form.name">Your Name</label>
-                <input type="text" id="commName" name="name" class="form-input-control" data-i18n-placeholder="community.form.namePlaceholder" placeholder="Optional / Anonymous">
-              </div>
-
-              <div class="form-field-group">
-                <label for="commEmail" data-i18n="community.form.email">Your Email Address</label>
-                <input type="email" id="commEmail" name="email" class="form-input-control" data-i18n-placeholder="community.form.emailPlaceholder" placeholder="For reply if desired">
-              </div>
-            </div>
-
-            <div class="form-field-group">
-              <label for="commTopic" data-i18n="community.form.topic">Topic or Suggestion Title *</label>
-              <input type="text" id="commTopic" name="topic" class="form-input-control" data-i18n-placeholder="community.form.topicPlaceholder" placeholder="e.g. Offline-First Sync Architecture in Low-Bandwidth Regions" required>
-            </div>
-
-            <div class="form-field-group">
-              <label for="commDetails" data-i18n="community.form.details">Details or Context</label>
-              <textarea id="commDetails" name="details" class="form-input-control" data-i18n-placeholder="community.form.detailsPlaceholder" placeholder="Briefly describe your question, use-case, or idea..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
-              <i class="fas fa-shield-alt"></i>
-              <span data-i18n="community.form.submit">Submit Proposal</span>
-            </button>
-
-            <div id="communityMessage" class="form-feedback-message" role="alert" aria-live="polite"></div>
-          </form>
+          <span class="eyebrow" data-i18n="community.eyebrow">Knowledge & Exchange</span>
+          <h2 class="section-title" data-i18n="communityBoard.radarTitle">What should we tackle next?</h2>
+          <p class="section-subtitle" data-i18n="communityBoard.homeBlurb">Vote on upcoming technical deep-dives, exchange architecture ideas, and suggest the next challenge.</p>
+          <a class="btn btn-primary" href="community.html">
+            <i class="fas fa-satellite-dish" aria-hidden="true"></i>
+            <span data-i18n="communityBoard.homeCta">Explore the community radar</span>
+          </a>
         </div>
       </div>
     </section>
@@ -1216,7 +1173,8 @@
 
           <!-- Netlify Native Contact Form -->
           <div class="contact-form-panel">
-            <h3 style="margin-bottom: 1.5rem;" data-i18n="contact.formTitle">Send an Architectural Inquiry</h3>
+            <span class="contact-form-kicker" data-i18n="contact.formAuthority">Engineering, architecture & delivery</span>
+            <h3 class="contact-form-title" data-i18n="contact.formTitle">Send an Architectural Inquiry</h3>
 
             <form id="contactForm" name="portfolio-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="portfolio-inquiry">
@@ -1253,6 +1211,14 @@
 
               <div id="formMessage" class="form-feedback-message" role="alert" aria-live="polite"></div>
             </form>
+            <div class="contact-whatsapp-bridge">
+              <span class="contact-bridge-label" data-i18n="contact.bridgeTitle">Prefer a direct chat?</span>
+              <p data-i18n="contact.bridgeText">Need an immediate answer?</p>
+              <a id="whatsappQuickLink" href="https://wa.me/237659745176?text=Hello%20Steve%2C%20I%20would%20like%20to%20discuss%20a%20software%20architecture%20question." target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                <span data-i18n="contact.bridgeLink">Start a WhatsApp chat with Steve</span>
+              </a>
+            </div>
           </div>
 
         </div>
@@ -1282,6 +1248,7 @@
             <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
             <li><a href="#journey" data-i18n="nav.journey">My Journey</a></li>
             <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="community.html" data-i18n="nav.community">Community</a></li>
             <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
             <li><a href="assets/docs/CV_DJIDJOU_STEVE.pdf" download="CV_DJIDJOU_STEVE.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); font-weight: 600;"><i class="fas fa-file-pdf"></i> <span data-i18n="hero.downloadCv">Download CV (PDF)</span></a></li>
           </ul>
@@ -1306,7 +1273,7 @@
   </footer>
 
   <!-- Core Scripts -->
-  <script src="assets/js/i18n.js?v=20261104b"></script>
-  <script src="assets/js/main.js?v=20261104c"></script>
+  <script src="assets/js/i18n.js?v=20261105a"></script>
+  <script src="assets/js/main.js?v=20261105a"></script>
 </body>
 </html>

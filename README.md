@@ -15,7 +15,8 @@ Live Deployment: [https://dskode.netlify.app/](https://dskode.netlify.app/)
 - **Accessibility & Compliance**: WCAG 2.1 AA compliant, semantic HTML5 structure, keyboard `:focus-visible` indicators, skip-navigation link, and complete `prefers-reduced-motion` support.
 - **Motion & Performance**: Native CSS transitions and one-time `IntersectionObserver` reveals; no animation framework, autoplay, or motion when reduced motion is requested.
 - **Form Infrastructure**: Netlify Native Forms with Honeypot anti-spam protection, forwarding directly to `stevekamgno2@gmail.com`.
-- **Encrypted Community Vault**: Optional Node.js + SQLite backend (`backend/server.js`) implementing AES-256-GCM encryption and SHA-256 privacy hashing for community technical inquiries.
+- **Community Architecture Radar**: A bilingual community page with shared topic voting, public display-name discussions, and private, reviewed topic suggestions.
+- **Community API**: Node.js API (`backend/server.js`) persists poll and discussion data in `data/community-board.json`; private suggestions continue to use the encrypted community vault.
 
 ### Visual system
 
@@ -44,6 +45,7 @@ Supply lossless originals or high-quality WebP exports with private/student info
 ```
 My_Portfolio-/
 ├── index.html                    # Semantic HTML5 single-page application
+├── community.html                # Architecture Radar, discussion board, and topic suggestions
 ├── package.json                  # Project metadata and local preview scripts
 ├── README.md                     # Technical architecture documentation
 ├── assets/
@@ -51,11 +53,13 @@ My_Portfolio-/
 │   │   └── style.css             # Executive white/navy design system & responsive layout
 │   └── js/
 │       ├── i18n.js               # Complete English/French translation engine
-│       └── main.js               # Client controller (navigation, typing, forms)
+│       ├── main.js               # Client controller (navigation, forms, contact handoff)
+│       └── community.js          # Shared poll and discussion UI
 ├── backend/
 │   ├── database.js               # Encrypted SQLite vault (AES-256-GCM + SHA-256)
-│   └── server.js                 # Local API server for community proposals
-└── data/                         # Local database storage (.db and vault backups)
+│   ├── community-board.js        # Persistent vote and discussion store
+│   └── server.js                 # API for board activity and private proposals
+└── data/                         # Local database, vault, and community board storage
 ```
 
 ---
@@ -72,21 +76,20 @@ My_Portfolio-/
 
 ## 4. Local Development & Preview
 
-### Static Preview
-```bash
-# Using Python
-python -m http.server 3000
+Run the API and static site in separate terminals:
 
-# Using Node.js
-npm run dev
-```
-Visit `http://localhost:3000`
-
-### Encrypted Community Backend (Optional)
 ```bash
 npm start
+npm run dev
 ```
-Starts the secure community API server at `http://localhost:3001`.
+
+Visit `http://localhost:3000/community.html`. The page automatically connects to the API on port 3001 during local development.
+
+The community page uses `window.COMMUNITY_API_BASE` (set before `assets/js/community.js` loads) to locate the API. For a same-origin deployment, route `/api` to the Node API. For a separately hosted API, set this value to its `/api` URL and set `COMMUNITY_ALLOWED_ORIGIN` to the website's origin.
+
+The board JSON file must live on persistent storage (configure its location with `COMMUNITY_BOARD_PATH` if needed), and the API should run as a single instance: votes and discussions are shared through this file. Deployments with ephemeral storage or multiple API replicas need a shared database before launch. Browser-local voter IDs prevent repeat votes in the same browser profile; they are not account-level identity verification. Discussion posts show the chosen display name and are public. Suggestion names, email addresses, and details are sent privately through the community proposal flow; approved topics must be added to the board by the site owner. The static preview works without the API, but the live poll and discussions require it.
+
+To publish an approved suggestion, add it to the `topics` array in `data/community-board.json` on the API host, using a unique kebab-case `id`, `title`, and `category`. Optional `description`, `titleFr`, `categoryFr`, and `descriptionFr` fields provide topic context in both languages. Preserve the existing `votes` and `discussions` properties when editing the board file.
 
 ---
 

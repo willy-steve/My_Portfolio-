@@ -193,6 +193,25 @@
     const messageEl = document.getElementById('formMessage');
     if (!form) return;
 
+    const topic = new URLSearchParams(window.location.search).get('topic');
+    if (topic) {
+      const subject = form.querySelector('#subject');
+      const message = form.querySelector('#message');
+      const whatsappLink = document.getElementById('whatsappQuickLink');
+      const safeTopic = topic.trim().slice(0, 160);
+      const subjectPrefix = window.i18n ? window.i18n.t('contact.topicSubjectPrefix') : 'Discussion';
+      const messageTemplate = window.i18n ? window.i18n.t('contact.topicMessageTemplate') : 'Hi Steve,\n\nI would like to discuss: {topic}.\n\nMy question is: ';
+      const whatsappTemplate = window.i18n ? window.i18n.t('contact.whatsappTopicTemplate') : 'Hello Steve, I would like to discuss: {topic}.';
+      if (subject && !subject.value) subject.value = `${subjectPrefix}: ${safeTopic}`;
+      if (message && !message.value) {
+        message.value = messageTemplate.replace('{topic}', safeTopic);
+      }
+      if (whatsappLink) {
+        const text = whatsappTemplate.replace('{topic}', safeTopic);
+        whatsappLink.href = `https://wa.me/237659745176?text=${encodeURIComponent(text)}`;
+      }
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -272,29 +291,43 @@
       if (submitBtn) submitBtn.disabled = true;
 
       try {
-        const response = await fetch('/api/community', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, topic, details })
-        });
+        const apiBase = (window.COMMUNITY_API_BASE || '/api').replace(/\/$/, '');
+        let apiResponse;
+        try {
+          apiResponse = await fetch(`${apiBase}/community`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, topic, details })
+          });
+        } catch (error) {
+          console.warn('[Community Form] API unavailable; trying the configured form provider.', error);
+        }
 
-        if (response.ok) {
-          displayMessage(messageEl, window.i18n ? window.i18n.t('community.form.success') : 'Proposal safely encrypted and stored.', 'success');
+        if (apiResponse?.ok) {
+          displayMessage(messageEl, window.i18n ? window.i18n.t('community.form.success') : 'Proposal safely received for review.', 'success');
           form.reset();
-        } else {
+          return;
+        }
+        if (apiResponse && apiResponse.status !== 404) {
+          console.error('[Community Form] API rejected the proposal:', apiResponse.status);
+          displayMessage(messageEl, window.i18n ? window.i18n.t('community.form.error') : 'Could not submit your proposal. Please try again or reach out directly.', 'error');
+          return;
+        }
+
+        try {
           const formData = new FormData(form);
-          await fetch('/', {
+          const fallbackResponse = await fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString()
           });
+          if (!fallbackResponse.ok) throw new Error(`Form provider returned ${fallbackResponse.status}.`);
           displayMessage(messageEl, window.i18n ? window.i18n.t('community.form.success') : 'Proposal securely received via encrypted channel.', 'success');
           form.reset();
+        } catch (error) {
+          console.error('[Community Form] Proposal submission failed:', error);
+          displayMessage(messageEl, window.i18n ? window.i18n.t('community.form.error') : 'Could not submit your proposal. Please try again or reach out directly.', 'error');
         }
-      } catch (error) {
-        console.warn('[Community Form] Direct endpoint fallback:', error);
-        displayMessage(messageEl, window.i18n ? window.i18n.t('community.form.success') : 'Proposal securely received.', 'success');
-        form.reset();
       } finally {
         if (submitBtn) submitBtn.disabled = false;
       }
