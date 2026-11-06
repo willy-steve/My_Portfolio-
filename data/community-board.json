@@ -1,0 +1,39 @@
+{
+  "topics": [
+    {
+      "id": "offline-pwas",
+      "title": "Designing Offline PWAs for Low Bandwidth",
+      "category": "Offline-first systems"
+    },
+    {
+      "id": "github-actions",
+      "title": "Building Zero-Downtime GitHub Actions CI/CD",
+      "category": "DevOps & delivery"
+    },
+    {
+      "id": "relational-nosql",
+      "title": "Relational vs NoSQL for School ERPs",
+      "category": "Architecture decisions"
+    }
+  ],
+  "votes": {
+    "f5056c7a-7781-40da-8e43-2c9dfbafde09": "offline-pwas",
+    "53c78e7a-9071-4d19-967c-6f619b51fd2f": "github-actions"
+  },
+  "discussions": [
+    {
+      "id": "4e805476-1590-4386-aa3f-f5f4250a0580",
+      "topicId": "offline-pwas",
+      "displayName": "Cloe",
+      "message": "je trouve que il es imposible the crea une application hor ligne",
+      "createdAt": "2026-11-05T07:53:20.284Z"
+    },
+    {
+      "id": "892b3b06-3c78-416a-a4ec-ffd87fcc2661",
+      "topicId": "github-actions",
+      "displayName": "john",
+      "message": "Il est possible",
+      "createdAt": "2026-11-05T07:57:25.874Z"
+    }
+  ]
+}
